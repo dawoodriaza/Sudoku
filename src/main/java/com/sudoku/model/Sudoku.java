@@ -19,11 +19,11 @@ public class Sudoku {
     public void printGridsBoard() {
         for (int i = 0; i < 9; i++) {
             if (i % 3 == 0 && i != 0) {
-                System.out.println("_________________________________________");
+                System.out.println("----------------------------------");
             }
             for (int j = 0; j < 9; j++) {
                 if (j % 3 == 0 && j != 0) {
-                    System.out.print(" || ");
+                    System.out.print(" | ");
                 }
                 int value = grids[i][j].getValue();
                 System.out.print(" " + value + " ");
@@ -31,5 +31,23 @@ public class Sudoku {
             System.out.println();
         }
         System.out.println("\n");
+    }
+
+    public String getGridAsString() {
+        StringBuilder bord = new StringBuilder();
+        for (int i = 0; i < 9; i++) {
+            if (i % 3 == 0 && i != 0) {
+                bord.append("----------------------------------\n");
+            }
+            for (int j = 0; j < 9; j++) {
+                if (j % 3 == 0 && j != 0) {
+                    bord.append(" | ");
+                }
+                int value = grids[i][j].getValue();
+                bord.append(" ").append(value).append(" ");
+            }
+            bord.append("\n");
+        }
+        return bord.toString();
     }
 }
